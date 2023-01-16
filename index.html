@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <title>Roshambo</title>
+        <link rel="icon" href="assets/images/rock.png">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway|Amatic+SC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+    </head>
+
+    <!-- PAGE BODY -->
+    <body>
+
+        <!-- FIREBASE CALLBACKS -->
+        <div class="noDisplay">
+            <div>user: <span id="user"></span></div>
+            <span>play:<span id="play"></span></span><br>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="winLose" class="overlay">
+            <a href="javascript:void(0)" id="nav_close" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <span>winner is<br><a href="javascript:void(0)" id="winner"></a></span>
+            </div>
+        </div>
+
+        <!-- REGISTER/LOGIN MODAL, DISPLAYS ON SELECTING FROM ONLOAD -->
+        <div id="formWrapper" class="modal">
+            <div id="authForm" class="modal-content animate">
+                <div class="container">
+                    <label for="email">Email</label>
+                    <b><input type="text" class="logIns" id="email" style="color:white" required autofocus></b>
+                    <label for="password">Password</label>
+                    <b><input type="password" class="logIns" id="password" style="color:white" required></b>
+                    <button id="bypass" class="logIns" type="submit" onclick="closeForm(); bypassLogin();">Continue w/o Registering</button>
+                    <button id="loginButton" class="logIns" type="submit" onclick="loginUser(email, password); closeForm()">Login</button>
+                    <button id="regButton" class="logIns" type="submit" onclick="registerNewUser(email, password); closeForm()">Register New User</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUTHORIZATION WRAPPER FOR PAGE -->
+        <div id="authWrapper" class="noDisplay">
+
+            <!-- RPS BUTTONS -->
+            <div id="rpsButtons" class="row header">
+                <img id="rock" src="assets/images/rock.png" class="rps">
+                <img id="paper" src="assets/images/paper.png" class="rps">
+                <img id="scissors" src="assets/images/scissors.png" class="rps">
+            </div>
+
+            <!-- CHAT AREA -->
+            <div id="chatArea" class="container"><br><br><br><br>
+
+                <!-- CHAT MESSAGES GO HERE
+                /////////////////////////
+                /////////////////////////
+                /////////////////////////-->
+                
+            </div>
+
+            <!-- FOOTER -->
+            <div>
+                <footer>
+                    <!-- CHAT INPUT -->
+                    <div id="chat-input-area">
+                        <a href="javascript:void(0)">
+                            <input id="chatInput" class="clickable" type="text" autofocus>
+                        </a>
+                    </div>
+                    <br>
+                    <!-- LOGOUT -->
+                    <button onclick="signOut();">signout</button>
+                    <!-- SOCIAL MEDIA LINKS -->
+                    <span id="socialMedia">
+                        <a href="https://www.linkedin.com/in/matthew-lorber/">
+                            <img src="assets/images/linkedin-128.png" width="36px" height="36px">
+                        </a>
+                        <a href="https://stackoverflow.com/users/12042344/matthew-lorber">
+                            <img src="assets/images/stackoverflow-social-media-128.png" width="36px" height="36px">
+                        </a>
+                        <a href="https://github.com/matthew-lorber">
+                            <img src="assets/images/github-512.png" width="36px" height="36px">
+                        </a>
+                        <a href="https://patreon.com/matthewlorber">
+                            <img src="assets/images/patreon.png" width="36px" height="36px">
+                        </a>
+                    </span>
+                </footer>
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+        <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+    </body>
+
+</html>
